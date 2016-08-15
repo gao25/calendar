@@ -105,6 +105,10 @@
 	var nowDate=new Date();
 	var d=nowDate.getDate();
 	console.log(d);
+	var y=nowDate.getFullYear();
+	var m=nowDate.getMonth()+1;
+	$(".year-month").html(y+"年"+m+"月");
+	console.log($(".year-month").html());
 	for(var i=0;i<42;i++){
 		days[i+1]=days[i]+1;
 		if (days[i+1]>31) {days[i+1]=1;}
@@ -117,23 +121,22 @@
 		                 "border":"1px dotted #ddd",
 		                 "background-color":"#3ef"});
 		}else{
-			$(this).mouseover(function(){
+			$(this).hover(function(){
 				$(this).css({
 					"color":"blue",
 					"background-color":"#ccc"
 				})
-			})
-			$(this).mouseout(function(){
+			},function(){
 				$(this).css({
-					"color":"#333",
-					"background-color":"#fff"
+			 	"color":"#333",
+			 	"background-color":"#fff"
 				})
 			})
 		}
 		if(index<7&&this.innerHTML>=25||index>31&&this.innerHTML<=11){
-			$(this).css("color","#ddd");
+			$(this).css("color","#999");
 			$(this).mouseout(function(){
-				$(this).css("color","#ddd");
+				$(this).css("color","#999");
 			})
 		}
 	})
